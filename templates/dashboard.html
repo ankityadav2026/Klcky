@@ -1,0 +1,155 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard | Klyck</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='dashboard.css') }}">
+</head>
+
+<body class="dashboard-page">
+
+    <nav class="navbar">
+        <a href="/" class="brand">
+            <span class="logo">K</span>
+            <span>Kylck</span>
+        </a>
+
+        <div class="dashboard-nav">
+            <a href="/">Home</a>
+            <a href="/practice">Practice</a>
+            <a href="/dashboard" class="nav-active">Dashboard</a>
+        </div>
+    </nav>
+
+    <main class="dashboard-container">
+
+        <header class="dashboard-heading">
+            <div>
+                <span class="eyebrow">K / YOUR PERFORMANCE</span>
+                <h1>Your progress.<span> Your journey.</span></h1>
+                <p>Every session makes you better. Keep going.</p>
+            </div>
+
+            <a href="/practice" class="primary-button">
+                Start practicing →
+            </a>
+        </header>
+
+        <!-- Statistics -->
+
+        <section class="dashboard-stats">
+
+            <div class="dashboard-card">
+                <span>TOTAL TESTS</span>
+                <strong id="totalTests">0</strong>
+                <small>Sessions completed</small>
+            </div>
+
+            <div class="dashboard-card">
+                <span>AVERAGE WPM</span>
+                <strong id="averageWpm">0</strong>
+                <small>Words per minute</small>
+            </div>
+
+            <div class="dashboard-card">
+                <span>PERSONAL BEST</span>
+                <strong id="bestWpm">0</strong>
+                <small>Highest typing speed</small>
+            </div>
+
+            <div class="dashboard-card">
+                <span>AVG. ACCURACY</span>
+                <strong id="averageAccuracy">0%</strong>
+                <small>Typing precision</small>
+            </div>
+
+        </section>
+
+        <!-- Performance Chart -->
+
+        <section class="chart-card">
+
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">PERFORMANCE TRACKER</span>
+                    <h2>Typing progress</h2>
+                    <p>Your latest 20 practice sessions</p>
+                </div>
+            </div>
+
+            <div class="chart-legend">
+                <span class="legend-dot"></span>
+                WPM
+            </div>
+
+            <div class="chart-wrapper">
+                <canvas id="progressChart"></canvas>
+            </div>
+
+            <p id="chartMessage" class="chart-message">
+                Complete a typing test to see your progress.
+            </p>
+
+        </section>
+
+        <!-- Recent History -->
+
+        <section class="history-card">
+
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">YOUR ACTIVITY</span>
+                    <h2>Recent sessions</h2>
+                    <p>Your latest typing test results</p>
+                </div>
+
+                <span class="history-count" id="historyCount">
+                    0 sessions
+                </span>
+            </div>
+
+            <div class="table-wrapper">
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>SESSION</th>
+                            <th>WPM</th>
+                            <th>ACCURACY</th>
+                            <th>ERRORS</th>
+                            <th>DATE</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="historyBody">
+                        <tr>
+                            <td colspan="5" class="empty-state">
+                                No practice sessions yet.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+
+        </section>
+
+        <footer class="dashboard-footer">
+            <span>Klyck</span>
+            <span>Practice. Improve. Repeat.</span>
+        </footer>
+
+    </main>
+
+    <script src="{{ url_for('static', filename='dashboard.js') }}"></script>
+
+</body>
+</html>
